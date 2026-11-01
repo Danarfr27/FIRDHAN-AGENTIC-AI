@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRDHAN-AGENT-V1.0 | OCR Edition</title>
+    <meta name="description" content="AI Chatbot with OCR - Cyberpunk Gundam Theme">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="cyber-grid"></div>
+    <div class="scanline"></div>
+    <div class="drag-overlay" id="dragOverlay">
+        <div class="drag-text">📁 DROP FILE HERE</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="header-brand">
+                    <div class="logo">⚡ FIRDHAN-AGENT-V1.0 ⚡</div>
+                    <div class="subtitle">Gundam Cyberpunk Interface | OCR Edition</div>
+                </div>
+                <label class="model-picker" for="modelSelect">
+                    <span>AI MODEL</span>
+                    <select id="modelSelect" aria-label="Pilih model AI"></select>
+                </label>
+            </div>
+            <div class="status-bar">
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>SYSTEM ONLINE</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot ocr"></div>
+                    <span>OCR: READY</span>
+                </div>
+                <div class="status-item">
+                    <span id="activeModelLabel">MODEL: GEMINI/GEMINI-3.5-FLASH-LITE</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Area -->
+        <main class="chat-container" id="chatContainer">
+            <div class="message bot">
+                <div class="message-content">
+                    <div class="message-header">🤖 FIRDHAN-AGENT</div>
+                    <div class="message-text">
+                        Selamat datang, Pilot! Sistem FIRDHAN-AGENT-V1.0 dengan kemampuan <strong>OCR</strong> telah aktif. 
+                        <br><br>
+                        📷 <strong>Fitur:</strong>
+                        <br>• Upload gambar untuk analisis visual
+                        <br>• OCR - Ekstrak teks dari gambar/dokumen
+                        <br>• Support: JPG, PNG, GIF, WebP, PDF, TXT
+                        <br><br>
+                        Silakan kirim pesan atau upload file!
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Preview Area -->
+        <div class="preview-area" id="previewArea">
+            <div class="preview-header">
+                <span class="preview-title">📎 FILE ATTACHED</span>
+                <button class="preview-remove" onclick="removeFile()">✕ REMOVE</button>
+            </div>
+            <div class="preview-content" id="previewContent">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <footer class="input-container">
+            <div class="input-row">
+                <input 
+                    type="file" 
+                    id="fileInput" 
+                    accept="image/*,.pdf,.txt,.doc,.docx"
+                >
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()" title="Upload File">
+                    📎
+                </button>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        placeholder=">> Masukkan perintah atau upload file..." 
+                        autocomplete="off"
+                    >
+                </div>
+                <button class="send-btn" onclick="sendMessage()">KIRIM</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="js/models.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
